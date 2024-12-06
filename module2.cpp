@@ -1,9 +1,7 @@
-
 #include <iostream>
 #include <fstream>
 #include <string>
 #include <sstream>
-
 using namespace std;
 
 int main() {
@@ -26,6 +24,7 @@ int main() {
         student2[count] = s2;
         count++;
     }
+
     file.close();
 
     cout << "Asymmetric Friendship Ordered Pairs:" << endl;

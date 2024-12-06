@@ -6,19 +6,19 @@
 
 
 int main() {
-    std::ifstream file("Friends Dataset.csv");
+    ifstream file("Friends Dataset.csv");
     if (file.is_open()) {
-        std::string line, word;
-        while (std::getline(file, line)) {
-            std::stringstream ss(line);
-            while (std::getline(ss, word, ',')) {
-                std::cout << word << " ";
+        string line, word;
+        while (getline(file, line)) {
+            :stringstream ss(line);
+            while (getline(ss, word, ',')) {
+              cout << word << " ";
             }
-            std::cout << std::endl;
+            cout << endl;
         }
         file.close();
     } else {
-        std::cout << "Unable to open file";
+        cout << "Unable to open file";
     }
     return 0;
 }
