@@ -1,4 +1,4 @@
-                    // BY ANAS JAVED 
+                       // By Muhammad Anas Javed.
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -7,7 +7,7 @@
 using namespace std;
 
 int main() {
-    const int SIZE = 1000;
+    const int SIZE = 2000;
     string names[SIZE];
     int counts[SIZE] = {0};
     int maxCount = 0;
