@@ -1,4 +1,4 @@
-                       // By Muhammad Anas Javed.
+                       // By Muhammad Anas bin Javed.
 #include <iostream>
 #include <fstream>
 #include <sstream>
