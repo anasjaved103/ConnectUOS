@@ -6,16 +6,16 @@
 #include <string>
 using namespace std;
 
- const int MAX_STUDENTS = 40; // max students
- const int MAX_FRIENDS = 5;   // max friends a student can have
- const int MAX_HOPS = 40;     // max hops 
+ const int MAX_STUDENTS = 40;
+ const int MAX_FRIENDS = 5;   
+ const int MAX_HOPS = 40;     
 
 struct Student {
     string name;
     string friends[MAX_FRIENDS];
 };
 
-// using a function to split a line into tokens
+
 void split(string &line, char delimiter, string tokens[], int &token_count) {
     stringstream ss(line);
     string token;
@@ -25,7 +25,7 @@ void split(string &line, char delimiter, string tokens[], int &token_count) {
     }
 }
 
-// using a function to find a student's index 
+
 int findStudentIndex(string &student_name, Student students[], int total_students) {
     for (int i = 0; i < total_students; i++) {
         if (students[i].name == student_name) {
@@ -34,7 +34,7 @@ int findStudentIndex(string &student_name, Student students[], int total_student
     }
     return -1;
 }
-//using a function to check if a value exists in an array
+
 bool existsInArray(string &value, string arr[], int size) {
     for (int i = 0; i < size; i++) {
         if (arr[i] == value) {
@@ -43,7 +43,7 @@ bool existsInArray(string &value, string arr[], int size) {
     }
     return false;
 }
-// using a function to calculate hops
+
 void findHops(string &student_name, Student students[], int total_students) {
     int studentIndex = findStudentIndex(student_name, students, total_students);
     if (studentIndex == -1) {
@@ -51,18 +51,18 @@ void findHops(string &student_name, Student students[], int total_students) {
         return;
     }
 
-    // Arrays of all hops
+    
     string hop1[MAX_HOPS], hop2[MAX_HOPS], hop3[MAX_HOPS];
     int hop1_count = 0, hop2_count = 0, hop3_count = 0;
 
-    // 1-hop friends
+   
     for (int i = 0; i < MAX_FRIENDS; i++) {
         if (!students[studentIndex].friends[i].empty()) {
             hop1[hop1_count++] = students[studentIndex].friends[i];
         }
     }
 
-    // 2-hop friends
+   
     for (int i = 0; i < hop1_count; i++) {
         int friendIndex = findStudentIndex(hop1[i], students, total_students);
         if (friendIndex != -1) {
@@ -77,7 +77,7 @@ void findHops(string &student_name, Student students[], int total_students) {
         }
     }
 
-    // 3-hop friends
+    
     for (int i = 0; i < hop2_count; i++) {
         int friendIndex = findStudentIndex(hop2[i], students, total_students);
         if (friendIndex != -1) {
@@ -93,7 +93,7 @@ void findHops(string &student_name, Student students[], int total_students) {
         }
     }
 
-    // print the hops
+  
     cout << "\n1-hop Friends: ";
     for (int i = 0; i < hop1_count; i++) {
         cout << hop1[i] << ", ";
@@ -124,10 +124,10 @@ int main() {
     int total_students = 0;
 
     string line;
-    // read the header row of dataset file
+   
     getline(file, line);
 
-    // read the remaining file
+    
     while (getline(file, line) && total_students < MAX_STUDENTS) {
         string tokens[MAX_FRIENDS + 1];
         int token_count = 0;
